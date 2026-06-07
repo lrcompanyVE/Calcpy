@@ -41,7 +41,4 @@ Una aplicación de escritorio ágil y minimalista desarrollada en **Python** y *
 Desarrollado con cariño por **[lrcompanyVE](https://github.com/lrcompanyVE)**.
 
 ---
-
-ATENCION: No esta hecho con fines comerciales ni de uso profesional
-
--------------------No me hago responsable por su uso------------------------------
+ - No me hago responsable por su uso -
