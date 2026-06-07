@@ -1,6 +1,6 @@
 # Calcpy 🧮
 
-Una aplicación de escritorio ágil y minimalista desarrollada en **Python** y **Kivy** para el punto de venta. Está diseñada específicamente para comercios en Venezuela que necesitan calcular precios rápidamente en mostrador y realizar conversiones automáticas entre dólares (USD) y bolívares (Bs.).
+Una aplicación de escritorio ágil y minimalista desarrollada en **Python** y **Kivy**. Está diseñada específicamente para el personal en Venezuela que necesitan calcular precios rápidamente de manera visual y realizar conversiones automáticas entre dólares (USD) y bolívares (Bs.).
 
 ## ✨ Características
 
