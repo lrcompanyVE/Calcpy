@@ -1,0 +1,131 @@
+# --- 1. PLANTILLA REUTILIZABLE PARA CADA PRODUCTO ---
+<CajaProducto>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: "45dp"
+    padding: 10
+    
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1 # Fondo blanco para cada fila
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: root.nombre
+        color: 0, 0, 0, 1
+        text_size: self.size
+        halign: 'left'
+        valign: 'middle'
+
+    Label:
+        text: root.precio
+        color: 0.1, 0.6, 0.1, 1
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
+
+    Button:
+        text: "X"
+        size_hint_x: None
+        width: "40dp"
+        background_normal: ''
+        background_color: 0.8, 0.2, 0.2, 1 # Color rojo
+        color: 1, 1, 1, 1
+        bold: True
+        # Llama a la función de la pantalla pasando esta misma fila (root)
+        on_release: app.root.eliminar_un_producto(root)
+
+# --- 2. DISEÑO PRINCIPAL DE LA PANTALLA ---
+<MiPantalla>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+    
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.9, 0.9, 1 # Fondo gris claro de la pantalla
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Buscador
+    TextInput:
+        id: entrada_texto
+        hint_text: "Escribe el nombre del producto"
+        multiline: False
+        size_hint_y: None
+        height: 50
+
+    # Boton para buscar y añadir a la lista
+    Button:
+        text: "Añadir producto"
+        size_hint_y: None
+        height: "50dp"
+        background_normal: ''
+        background_color: 0.20, 0.40, 0.64, 1
+        color: 1,1,1,1
+        on_press: root.buscar_y_agregar(entrada_texto.text)
+
+    # Boton para eliminar datos de la lista(reset)
+
+    Button:
+        text: "Nuevo Cliente"
+        size_hint_y: None
+        height: "50dp"
+        background_normal: ''
+        background_color: 0.76, 0.29, 0.29, 1
+        color:1,1,1,1
+        on_press: root.eliminar()
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        
+        BoxLayout:
+            id: contenedor_productos  
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height 
+            spacing: 5
+
+    BoxLayout:
+        size_hint_y: None
+        height: "60dp"      
+        padding: [20, 0]   
+        canvas.before:
+            Color:
+                rgba: 0.20, 0.40, 0.64, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: root.texto_bolivares
+            color: 1, 1, 1, 1       
+            font_size: 24           
+            bold: True              
+            text_size: self.size
+            halign: 'left'         
+            valign: 'middle'
+
+    BoxLayout:
+        size_hint_y: None
+        height: "60dp"      
+        padding: [20, 0] 
+        canvas.before:
+            Color:
+                rgba: 0.12, 0.53, 0.22, 1 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: root.texto_total
+            color: 1, 1, 1, 1       
+            font_size: 24           
+            bold: True              
+            text_size: self.size
+            halign: 'left'         
+            valign: 'middle'
